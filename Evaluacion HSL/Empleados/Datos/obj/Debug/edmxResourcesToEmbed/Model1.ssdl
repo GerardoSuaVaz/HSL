@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="empleadosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Curp" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Rfc" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="fechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="idPuesto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="idPuesto" />
+    </Key>
+    <Property Name="idPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nomPuesto" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Empleado__idPues__267ABA7A">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="idPuesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="cEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar" Mode="In" />
+    <Parameter Name="Curp" Type="varchar" Mode="In" />
+    <Parameter Name="Rfc" Type="varchar" Mode="In" />
+    <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="idPuesto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="dEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uEmpleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEmpleado" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar" Mode="In" />
+    <Parameter Name="Curp" Type="varchar" Mode="In" />
+    <Parameter Name="Rfc" Type="varchar" Mode="In" />
+    <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="idPuesto" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="empleadosModelStoreContainer">
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Empleado__idPues__267ABA7A" Association="Self.FK__Empleado__idPues__267ABA7A">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

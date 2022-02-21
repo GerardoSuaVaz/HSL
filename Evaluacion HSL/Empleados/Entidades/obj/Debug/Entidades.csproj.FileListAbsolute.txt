@@ -1,0 +1,12 @@
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\Entidades.dll
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\obj\Debug\Entidades.dll
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\Entidades.dll.config
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\EntityFramework.dll
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\EntityFramework.xml
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\Gerardo\Documents\Incersion TICH\HLS\Evaluacion HSL\Empleados\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache

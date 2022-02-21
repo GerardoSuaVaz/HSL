@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="empleadosModelStoreContainer" CdmEntityContainer="empleadosEntities">
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="empleadosModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="empleadosModel.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nomPuesto" ColumnName="nomPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="cEmpleados" FunctionName="empleadosModel.Store.cEmpleados" />
+    <FunctionImportMapping FunctionImportName="dEmpleados" FunctionName="empleadosModel.Store.dEmpleados" />
+    <FunctionImportMapping FunctionImportName="rEmpleados" FunctionName="empleadosModel.Store.rEmpleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="empleadosModel.rEmpleados_Result">
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Curp" ColumnName="Curp" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uEmpleados" FunctionName="empleadosModel.Store.uEmpleados" />
+  </EntityContainerMapping>
+</Mapping>

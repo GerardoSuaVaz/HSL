@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="empleadosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rfc" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idPuesto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Puesto" Relationship="Self.FK__Empleado__idPues__267ABA7A" FromRole="Empleado" ToRole="Puesto" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="idPuesto" />
+    </Key>
+    <Property Name="idPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clave" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nomPuesto" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idPues__267ABA7A" FromRole="Puesto" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="FK__Empleado__idPues__267ABA7A">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="idPuesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="empleadosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+    <AssociationSet Name="FK__Empleado__idPues__267ABA7A" Association="Self.FK__Empleado__idPues__267ABA7A">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <FunctionImport Name="cEmpleados">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Curp" Mode="In" Type="String" />
+      <Parameter Name="Rfc" Mode="In" Type="String" />
+      <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="idPuesto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="dEmpleados">
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rEmpleados" ReturnType="Collection(empleadosModel.rEmpleados_Result)">
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uEmpleados">
+      <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Apellido" Mode="In" Type="String" />
+      <Parameter Name="Curp" Mode="In" Type="String" />
+      <Parameter Name="Rfc" Mode="In" Type="String" />
+      <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="idPuesto" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="rEmpleados_Result">
+    <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Apellido" Nullable="false" MaxLength="70" />
+    <Property Type="String" Name="Curp" Nullable="false" MaxLength="18" />
+    <Property Type="String" Name="Rfc" Nullable="false" MaxLength="13" />
+    <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
+    <Property Type="Int32" Name="idPuesto" Nullable="false" />
+  </ComplexType>
+</Schema>
